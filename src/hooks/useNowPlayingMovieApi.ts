@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { options } from "../auth/movieAuth";
 import { NOW_PLAYING_MOVIE_URL } from "../utils/constants";
+import { useDispatch } from "react-redux";
+import { addNowPlaying } from "../utils/movieSlice";
 
-const useMovieApi = () => {
-    const [movieData, setMovieData] = useState([]);
+const useNowPlayingMovieApi = () => {
+    const dispatch = useDispatch();
     const fetchMoviePlayingData = async () => {
         try {
             const response = await fetch(NOW_PLAYING_MOVIE_URL, options);
             const data = await response.json();
-            setMovieData(data.results);
+            dispatch(addNowPlaying(data.results));
         } catch(error) {
             console.log("error", error);
         }
@@ -16,7 +18,6 @@ const useMovieApi = () => {
     useEffect(() => {
         fetchMoviePlayingData();
     }, []);
-    return movieData;
 };
 
-export default useMovieApi;
+export default useNowPlayingMovieApi;

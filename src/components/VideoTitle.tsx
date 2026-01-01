@@ -10,14 +10,14 @@ type VideoTitleProps = {
 
 const VideoTitle = ({videoData}: VideoTitleProps) => {
     return (
-        <div className="flex h-screen px-8 flex-col justify-center w-1/2 absolute text-white bg-gradient-to-r from-black">
-            <h1 className="font-bold text-5xl font-serif">{videoData.title}</h1>
-            <h3 className="text-xl font-bold">{videoData.overview}</h3>
-            <div className="flex w-1/2">
-                <button className="flex-1 bg-black text-white hover: bg-opacity-80">
+        <div className="flex w-screen aspect-video px-12 flex-col justify-center absolute text-white bg-gradient-to-r from-black">
+            <h1 className="font-bold text-4xl font-serif w-1/3 mb-2">{videoData.title}</h1>
+            <p className="text-l font-light w-1/3 mb-2">{videoData.overview}</p>
+            <div className="flex w-1/3">
+                <button className="flex-1 bg-white text-black hover:bg-opacity-80 mx-8 rounded-lg p-2">
                     ▶️ Play
                 </button>
-                <button className="flex-1">
+                <button className="flex-1 bg-white text-black mx-8 rounded-lg p2 hover:bg-opacity-80">
                 ℹ️ More Info
                 </button>
             </div>
