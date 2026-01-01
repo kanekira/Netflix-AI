@@ -2,9 +2,7 @@ import {  useRef, useState } from "react";
 import Header from "./Header";
 import validateLogin from "../utils/validate";
 import { signIn, signUp } from "../auth/firebaseAuth";
-import { useDispatch } from "react-redux";
-import { storeUser } from "../utils/userSlice";
-import { useNavigate } from "react-router-dom";
+import { NETFLIX_LOGO } from "../utils/constants";
 
 const Login = () => {
     const [isSignIn, setIsSignIn] = useState(true);
@@ -12,9 +10,7 @@ const Login = () => {
     const email = useRef<HTMLInputElement | null>(null);
     const password = useRef<HTMLInputElement | null>(null);
     const [inputErrorMessage, setInputErrorMessage] = useState<string | null>(null);
-    const navigate = useNavigate();
 
-    const dispatch = useDispatch();
     const toggleSignIn = () => {
         setIsSignIn(prev => !prev);
     }
@@ -26,23 +22,13 @@ const Login = () => {
             if(validateMessage) return;
             if(isSignIn) {
                 signIn(email.current.value, password.current.value).then((currentUserInfo) => {
-                    console.log("current user", currentUserInfo);
-                    if(currentUserInfo.success) {
-                        const userJsonData = currentUserInfo.data?.toJSON();
-                        dispatch(storeUser(userJsonData));
-                        navigate("/browse");
-                    } else {
+                    if(!currentUserInfo.success) {
                         setInputErrorMessage(currentUserInfo.message);
                     }
                 });
             } else {
                 signUp(email.current.value, password.current.value, fullName?.current?.value).then((currentUserInfo) => {
-                    console.log("current user", currentUserInfo);
-                    if(currentUserInfo.success) {
-                        const userJsonData = currentUserInfo.data?.toJSON();
-                        dispatch(storeUser(userJsonData));
-                        navigate("/browse");
-                    } else {
+                    if(!currentUserInfo.success) {
                         setInputErrorMessage(currentUserInfo.message);
                     }
                 });
@@ -52,7 +38,7 @@ const Login = () => {
     return (
         <div className="relative">
             <Header />
-            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/f86b16bf-4c16-411c-8357-22d79beed09c/web/IN-en-20251222-TRIFECTA-perspective_d4acb127-f63f-4a98-ad0b-4317b0b3e500_medium.jpg" alt=""/>
+            <img src={NETFLIX_LOGO} alt=""/>
             <form onSubmit={(e) => e.preventDefault()} className=" bg-black bg-opacity-70 absolute top-40 left-0 right-0 w-3/12 h-auto mx-auto rounded-md
             p-16">
                 <h1 className="text-white font-bold text-3xl pb-10">{isSignIn ? 'Sign In' : 'Sign Up'}</h1>
