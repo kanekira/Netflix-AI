@@ -5,11 +5,19 @@ export type MovieObj = {
     poster_path: string;
 };
 
+type GptMoviesResult = {
+    title: string;
+    results: MovieObj[];
+}
+
+type MoviesType = {
+    nowPlayingMovies: MovieObj[];
+    popularMovies: MovieObj[];
+    topRatedMovies: MovieObj[];
+    upcomingMovies: MovieObj[];
+    searchedGptMovies: GptMoviesResult[];
+}
+
 export type MovieStore = {
-    movies: {
-        nowPlayingMovies?: MovieObj[];
-        popularMovies?: MovieObj[];
-        topRatedMovies?: MovieObj[];
-        upcomingMovies?: MovieObj[];
-    }
+    movies: Partial<MoviesType>;
 };

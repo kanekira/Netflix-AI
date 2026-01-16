@@ -5,3 +5,4 @@ export const MOVIE_IMAGE_CDN_URL = "https://image.tmdb.org/t/p/w780";
 export const POPULAR_MOVIE_URL = "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
 export const TOP_RATED_MOVIE_URL = "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
 export const UPCOMING_MOVIES_URL = "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
+export const GEMINI_API_KEY=process.env.REACT_APP_GEMINI_API_KEY;

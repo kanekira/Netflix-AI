@@ -6,9 +6,14 @@ type MovieUrl = {
 
 const MovieCard = ({posterUrl}: MovieUrl) => {
     return (
-        <div className="w-44 px-4 py-2">
-            <img src={MOVIE_IMAGE_CDN_URL + posterUrl} alt="logo"/>
-        </div>
+        <>
+        {
+            posterUrl && 
+            <div className="w-44 px-4 py-2">
+                <img src={MOVIE_IMAGE_CDN_URL + posterUrl} alt="logo"/>
+            </div>
+        }
+        </>
     )
 };
 
