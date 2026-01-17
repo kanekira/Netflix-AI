@@ -5,7 +5,7 @@ import GptSearchHeader from "./GptSearchHeader";
 const GptSearch = () => {
     return (
         <div className="h-screen flex flex-col overflow-hidden">
-            <img className="-z-10 absolute" src={NETFLIX_LOGO} alt=""/>
+            <img className="-z-10 absolute h-screen object-cover" src={NETFLIX_LOGO} alt=""/>
             <GptSearchHeader />
             <GptSearchBody />
         </div>

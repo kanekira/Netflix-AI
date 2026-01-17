@@ -38,10 +38,10 @@ const Login = () => {
     return (
         <div className="relative">
             <Header />
-            <img src={NETFLIX_LOGO} alt=""/>
-            <form onSubmit={(e) => e.preventDefault()} className=" bg-black bg-opacity-70 absolute top-40 left-0 right-0 w-3/12 h-auto mx-auto rounded-md
-            p-16">
-                <h1 className="text-white font-bold text-3xl pb-10">{isSignIn ? 'Sign In' : 'Sign Up'}</h1>
+            <img className="h-screen object-cover md:object-none" src={NETFLIX_LOGO} alt=""/>
+            <form onSubmit={(e) => e.preventDefault()} className=" bg-black bg-opacity-70 absolute top-40 left-0 right-0 md:w-3/12 md:h-auto mx-auto rounded-md
+            md:p-16 w-[70%] h-[70%] p-6">
+                <h1 className="text-white font-bold md:text-3xl md:pb-10 text-lg pb-4">{isSignIn ? 'Sign In' : 'Sign Up'}</h1>
                 {!isSignIn && <input ref={fullName} className="block p-3 my-5 w-full bg-transparent rounded-lg border-gray-400 border-2 text-gray-100" type="text" placeholder="Enter Full Name" />}
                 <input ref={email} className="block p-3 my-5 w-full bg-transparent rounded-lg border-gray-400 border-2 text-gray-100" type="text" placeholder="Enter Email"/>
                 <input ref={password} className="block p-3 my-5 w-full bg-transparent rounded-lg border-gray-400 border-2 text-gray-100" type="password" placeholder="Enter Password" />

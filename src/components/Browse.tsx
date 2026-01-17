@@ -13,7 +13,7 @@ const Browse = () => {
         <div>
             <Header />
             <button
-                className="text-black h-auto z-10 absolute left-[50%] top-8 px-2 rounded-lg bg-red-700 hover:bg-opacity-50"
+                className="text-black h-auto z-10 absolute md:left-[50%] md:right-auto right-1 top-8 px-2 rounded-lg bg-red-700 hover:bg-opacity-50"
                 onClick={toggleGpt}>
                     {toggleGptState ? "Search GPT" : "HomePage" }
             </button>

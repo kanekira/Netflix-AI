@@ -13,7 +13,7 @@ const SecondaryContainer = () => {
     if(!movieSelector) return null;
     return (
         <div className="bg-black">
-            <div className="-mt-72">
+            <div className="md:-mt-72 -mt-[60%]">
                 <MoviesList title="Now Playing" movies={movieSelector.nowPlayingMovies} />
             </div>
             <MoviesList title="Popular Movies" movies={movieSelector.popularMovies} />

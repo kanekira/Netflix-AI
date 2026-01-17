@@ -29,16 +29,16 @@ const GptSearchHeader = () => {
         setInputText("")
     }
     return (
-        <div className="flex p-[10%] justify-center">
+        <div className="flex md:p-[10%] pt-[50%] px-[5%] pb-[10%] justify-center">
             <form onSubmit={(e) => e.preventDefault()} className="grid grid-cols-12">
                 <input
                     type="text" 
-                    className="border border-black col-span-10 p-2 bg-black rounded-lg text-gray-400" 
+                    className="border border-black md:col-span-10 col-span-9 p-2 bg-black rounded-lg text-gray-400 md:text-lg text-xs" 
                     placeholder="What is your watch mood today?"
                     value={inputText}
                     onChange={handleChange}
                 />
-                <button className="col-span-2 mx-3 bg-red-700 px-2 rounded-lg" onClick={handleSearchClick}> Search </button>
+                <button className="md:col-span-2 col-span-3 mx-3 bg-red-700 px-2 rounded-lg md:text-lg text-sm" onClick={handleSearchClick}> Search </button>
             </form>
         </div>
     )
